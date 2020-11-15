@@ -22,8 +22,8 @@ public class UsuarioDAO implements Serializable{
 	public int incluir(Usuario usuario) throws SQLException{
 		if(usuario == null)
 			return 0;
-		String sql = "INSERT INTO usuario VALUES(nome,telefone,endereco,tipoSanguinio,dataNasc,conta_id) VALUES (?,?,?,?,?,?)";
-
+		String sql = "INSERT INTO usuario (nome, telefone, endereco,  dataNasc, tipoSanguinio) VALUES (?,?,?,?,?)";
+	
 		PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 		stmt.setString(1, usuario.getNome());
 		stmt.setString(2, usuario.getEndereco());
@@ -31,7 +31,6 @@ public class UsuarioDAO implements Serializable{
 		java.sql.Date data = new java.sql.Date(usuario.getDataNasc().getTime());
 		stmt.setDate(4, data);		
 		stmt.setString(5, usuario.getTipoSanguineo());
-		stmt.setLong(6, usuario.getId());
 		int retorno = stmt.executeUpdate();
 		return retorno;
 	}
@@ -60,7 +59,7 @@ public class UsuarioDAO implements Serializable{
 	public int alterar(Usuario usuario)throws SQLException{
 		if(usuario == null)
 			return 0;
-		String sql = "UPDATE agenda SET nome=?, telefone=?,endereco=?, tipoSanguinio=?, dataNasc=?, conta_id=? WHERE id=?";
+		String sql = "UPDATE agenda SET nome=?, telefone=?,endereco=?, tipoSanguinio=?, dataNasc=? WHERE id=?";
 		PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 		stmt.setString(1, usuario.getNome());
 		stmt.setString(2, usuario.getEndereco());
@@ -68,7 +67,6 @@ public class UsuarioDAO implements Serializable{
 		java.sql.Date data = new java.sql.Date(usuario.getDataNasc().getTime());
 		stmt.setDate(4, data);		
 		stmt.setString(5, usuario.getTipoSanguineo());
-		stmt.setLong(6, usuario.getContas().getId());
 		int retorno = stmt.executeUpdate();
 		stmt.close();
 		return retorno;		

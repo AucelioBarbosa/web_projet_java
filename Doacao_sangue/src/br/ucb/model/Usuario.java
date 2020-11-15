@@ -12,7 +12,6 @@ public class Usuario implements Serializable{
 	 private String tel;
 	 private Date dataNasc;
 	 private String tipoSanguineo;
-	 private Conta contas;
 	 
 	public Usuario() {
 		 
@@ -64,14 +63,6 @@ public class Usuario implements Serializable{
 
 	public void setTipoSanguineo(String tipoSanguineo) {
 		this.tipoSanguineo = tipoSanguineo;
-	}
-
-	public Conta getContas() {
-		return contas;
-	}
-
-	public void setContas(Conta contas) {
-		this.contas = contas;
 	}
 	 
 }

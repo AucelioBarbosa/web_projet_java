@@ -24,8 +24,6 @@
 			<label>Data de nascimento</label><br>
 			<label>dd/mm/aaaa</label><br>
 			<input type="text" name="dataNasc"><p>
-			<label>CPF</label><br>
-			<input type="text" name="cpf"><p>
 			<label>Tipo Sanguíneo</label><br>
 			<select name="tipoSanguinio">
 				<option>A-</option>
@@ -40,7 +38,6 @@
 			<input type="submit">
 			<p>
 		</form>
-		<a href="UsuarioCRUD?acao=">Cadastrar</a>
 	</div>	
 </body>
 </html>

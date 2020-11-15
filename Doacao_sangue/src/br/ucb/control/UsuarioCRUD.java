@@ -62,12 +62,12 @@ public class UsuarioCRUD extends HttpServlet {
 						request.setAttribute("sucesso", "Incluido com sucesso!");			
 				}
 				usuarios = usuarioDAO.listar();
-				destino ="listaAgenda.jsp";
+				destino ="index.jsp";
 				request.setAttribute("usuarios",usuario);
 			}
 
 		} catch (SQLException e) {
-			request.setAttribute("erro", "Erro de banco de dados");
+			request.setAttribute("erro", "Erro de banco de dados  ");
 			destino = "index.jsp";
 		}
 		catch (NumberFormatException e) {
