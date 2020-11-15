@@ -8,13 +8,8 @@ public class Agenda implements Serializable{
 	
 	private long codigo;
 	private Date data;
-	private Usuario funcionario;
-	private Usuario paciente;
+	private Usuario usuarios;
 	
-	public Agenda() {
-		
-	}
-
 	public long getCodigo() {
 		return codigo;
 	}
@@ -31,20 +26,18 @@ public class Agenda implements Serializable{
 		this.data = data;
 	}
 
-	public Usuario getFuncionario() {
-		return funcionario;
+	public Usuario getUsuarios() {
+		return usuarios;
 	}
 
-	public void setFuncionario(Usuario funcionario) {
-		this.funcionario = funcionario;
+	public void setUsuarios(Usuario usuarios) {
+		this.usuarios = usuarios;
 	}
 
-	public Usuario getPaciente() {
-		return paciente;
+	public Agenda() {
+		
 	}
 
-	public void setPaciente(Usuario paciente) {
-		this.paciente = paciente;
-	}
+
 	
 }

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import br.ucb.model.Usuario;
 
 public class UsuarioDAO implements Serializable{
@@ -21,15 +22,16 @@ public class UsuarioDAO implements Serializable{
 	public int incluir(Usuario usuario) throws SQLException{
 		if(usuario == null)
 			return 0;
-		String sql = "ISERTE INTO agenda (nome, endereco, tel, dataNas, cpf, tipoSanguineo)value (?,?,?,?,?,?)";
+		String sql = "INSERT INTO usuario VALUES(nome,telefone,endereco,tipoSanguinio,dataNasc,conta_id) VALUES (?,?,?,?,?,?)";
+
 		PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 		stmt.setString(1, usuario.getNome());
 		stmt.setString(2, usuario.getEndereco());
 		stmt.setString(3, usuario.getTel());
-		java.sql.Date data = new java.sql.Date(usuario.getdataNasc().getTime());
+		java.sql.Date data = new java.sql.Date(usuario.getDataNasc().getTime());
 		stmt.setDate(4, data);		
-		stmt.setString(5, usuario.getCpf());
-		stmt.setString(6, usuario.getTipoSanguineo());
+		stmt.setString(5, usuario.getTipoSanguineo());
+		stmt.setLong(6, usuario.getId());
 		int retorno = stmt.executeUpdate();
 		return retorno;
 	}
@@ -39,15 +41,15 @@ public class UsuarioDAO implements Serializable{
 		PreparedStatement stmt = this.con.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 		List<Usuario> usuarios = new ArrayList<Usuario>();
+	
 		while(rs.next()) {
 			Usuario usuario = new Usuario();
-			usuario.setId(rs.getLong("id_usuario"));
-			usuario.setNome(rs.getString("id_usuario"));
-			usuario.setEndereco(rs.getString("endereco"));
-			usuario.setTel(rs.getString("telefone"));
-			usuario.setdataNasc(rs.getDate("dataNasc"));
-			usuario.setCpf(rs.getString("cpf"));
-			usuario.setTipoSanguineo(rs.getString("tipoSanquineo"));
+			usuario.setId(rs.getLong("id"));
+			usuario.setNome(rs.getString("nome"));
+			usuario.setEndereco(rs.getString("end"));
+			usuario.setTel(rs.getString("tel"));
+			usuario.setDataNasc(rs.getDate("dataNasc"));
+			usuario.setTipoSanguineo(rs.getString("tipoSague"));
 			usuarios.add(usuario);
 		}
 		rs.close();
@@ -58,15 +60,15 @@ public class UsuarioDAO implements Serializable{
 	public int alterar(Usuario usuario)throws SQLException{
 		if(usuario == null)
 			return 0;
-		String sql = "UPDATE agenda SET nome=?, endereco=?, tel=?, dataNas=?, cpf=?, tipoSanguineo=?";
+		String sql = "UPDATE agenda SET nome=?, telefone=?,endereco=?, tipoSanguinio=?, dataNasc=?, conta_id=? WHERE id=?";
 		PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 		stmt.setString(1, usuario.getNome());
 		stmt.setString(2, usuario.getEndereco());
 		stmt.setString(3, usuario.getTel());
-		java.sql.Date data = new java.sql.Date(usuario.getdataNasc().getTime());
+		java.sql.Date data = new java.sql.Date(usuario.getDataNasc().getTime());
 		stmt.setDate(4, data);		
-		stmt.setString(5, usuario.getCpf());
-		stmt.setString(6, usuario.getTipoSanguineo());
+		stmt.setString(5, usuario.getTipoSanguineo());
+		stmt.setLong(6, usuario.getContas().getId());
 		int retorno = stmt.executeUpdate();
 		stmt.close();
 		return retorno;		
@@ -74,19 +76,18 @@ public class UsuarioDAO implements Serializable{
 	
 	public Usuario consultar(Long id) throws SQLException{
 		Usuario usuario = null;
-		String sql = "SELECT*FROM usuario WHERE id_usuario";
+		String sql = "SELECT*FROM usuario WHERE id ";
 		PreparedStatement stmt = this.con.prepareStatement(sql);
 		stmt.setLong(1,id);
 		ResultSet rs = stmt.executeQuery();
 		if(rs.first()) {
 			usuario = new Usuario();
-			usuario.setId(rs.getLong("id_usuario"));
-			usuario.setNome(rs.getString("id_usuario"));
+			usuario.setId(rs.getLong("id"));
+			usuario.setNome(rs.getString("nome"));
 			usuario.setEndereco(rs.getString("endereco"));
-			usuario.setTel(rs.getString("telefone"));
-			usuario.setdataNasc(rs.getDate("dataNasc"));
-			usuario.setCpf(rs.getString("cpf"));
-			usuario.setTipoSanguineo(rs.getString("tipoSanquineo"));
+			usuario.setTel(rs.getString("tel"));
+			usuario.setDataNasc(rs.getDate("dataNasc"));
+			usuario.setTipoSanguineo(rs.getString("tipoSague"));
 		}
 		rs.close();
 		stmt.close();
@@ -96,7 +97,7 @@ public class UsuarioDAO implements Serializable{
 	public int excluir(Usuario usuario)throws SQLException {
 		if(usuario == null)
 			return 0;
-		String sql = "DELETE FROM usuario WHERE id_usuario";
+		String sql = "DELETE FROM usuario WHERE id";
 		PreparedStatement stmt = this.con.prepareStatement(sql);
 		stmt.setLong(1,usuario.getId());
 		int retorno = stmt.executeUpdate();

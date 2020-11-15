@@ -50,28 +50,32 @@ public class UsuarioCRUD extends HttpServlet {
 			}else if (acao.equals("salvar")){
 				usuario = new Usuario();
 				usuario.setNome(request.getParameter("nome"));
-				usuario.setTel(request.getParameter("tel"));
+				usuario.setTel(request.getParameter("telefone"));
 				usuario.setEndereco(request.getParameter("endereco"));
+				usuario.setTipoSanguineo(request.getParameter("tipoSanguinio"));				
 				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-				usuario.setdataNasc(sdf.parse(request.getParameter("dataNasc")));
+				usuario.setDataNasc(sdf.parse(request.getParameter("dataNasc")));
 				if (request.getParameter("id").equals("")) { // n�o tem id
 					if (usuarioDAO.incluir(usuario) == 0)
 						request.setAttribute("erro", "Erro na inclus�o. N�o incluido!");
 					else
 						request.setAttribute("sucesso", "Incluido com sucesso!");			
 				}
+				usuarios = usuarioDAO.listar();
+				destino ="listaAgenda.jsp";
+				request.setAttribute("usuarios",usuario);
 			}
 
 		} catch (SQLException e) {
 			request.setAttribute("erro", "Erro de banco de dados");
-			destino = "alunoLista.jsp";
+			destino = "index.jsp";
 		}
 		catch (NumberFormatException e) {
 			request.setAttribute("erro", "Erro de convers�o de n�mero");
-			destino = "alunoEntrada.jsp";
+			destino = "index.jsp";
 		} catch (ParseException e) {
 			request.setAttribute("erro", "Erro de convers�o da data");
-			destino = "alunoEntrada.jsp";
+			destino = "index.jsp";
 		}
 		dispatcher = request.getRequestDispatcher(destino);
 		dispatcher.forward(request, response);

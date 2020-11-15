@@ -12,11 +12,19 @@ public class Usuario implements Serializable{
 	 private String tel;
 	 private Date dataNasc;
 	 private String tipoSanguineo;
-	 private String cpf;
+	 private Conta contas;
 	 
-	 public Usuario() {
+	public Usuario() {
 		 
-	 }
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;
@@ -42,11 +50,11 @@ public class Usuario implements Serializable{
 		this.tel = tel;
 	}
 
-	public Date getdataNasc() {
+	public Date getDataNasc() {
 		return dataNasc;
 	}
 
-	public void setdataNasc(Date dataNasc) {
+	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 
@@ -58,20 +66,12 @@ public class Usuario implements Serializable{
 		this.tipoSanguineo = tipoSanguineo;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public Conta getContas() {
+		return contas;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+	public void setContas(Conta contas) {
+		this.contas = contas;
 	}
 	 
 }

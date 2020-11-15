@@ -28,7 +28,7 @@
 				<td align="center">${usuario.tel}</td>
 				<td align="center">${usuario.dataNasc}</td>
 				<td align="center">${usuario.cpf}</td>
-				<td align="center">${usuario.tipoSanguinio}</td>
+				<td align="center">${usuario.tipoSanguineo}</td>
 				<td>
 					<a href="UsuarioCRUD?acao=consultar&id=${usuario.id}">editar</a>
 					<a href="UsuariCRUD?acao=excluir&id=${usuario.id}">excluir</a>
