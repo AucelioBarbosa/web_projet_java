@@ -32,11 +32,11 @@ public class UsuarioCRUD extends HttpServlet {
 			usuarioDAO = new UsuarioDAO();
 			if((acao == null) || (acao.equals("listar"))) {
 				usuarios = usuarioDAO.listar();
-				destino ="listaAgenda.jsp";
+				destino ="listarUsuario.jsp";
 			}else if(acao.equals("consultar")){
 				id = Long.parseLong(request.getParameter("id"));
 				usuario = usuarioDAO.consultar(id);
-				destino = "listaAgenda.jsp";	
+				destino = "listarUsuario.jsp";	
 			}else if(acao.equals("excluir")){
 				id = Long.parseLong(request.getParameter("id"));
 				usuario =  usuarioDAO.consultar(id);
@@ -46,7 +46,7 @@ public class UsuarioCRUD extends HttpServlet {
 					request.setAttribute("erro","erro ao excluir usuario");
 				else
 					request.setAttribute("Sucesso","usuario excluido");
-				destino = "listaAgenda.jsp";
+				destino = "listarUsuario.jsp";
 			}else if (acao.equals("salvar")){
 				usuario = new Usuario();
 				usuario.setNome(request.getParameter("nome"));
@@ -67,7 +67,7 @@ public class UsuarioCRUD extends HttpServlet {
 			}
 
 		} catch (SQLException e) {
-			request.setAttribute("erro", "Erro de banco de dados  ");
+			request.setAttribute("erro", "Erro de banco de dados=  "+ e.getMessage());
 			destino = "index.jsp";
 		}
 		catch (NumberFormatException e) {

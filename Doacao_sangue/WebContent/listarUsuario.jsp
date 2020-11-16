@@ -8,7 +8,7 @@
 <title>Doadores</title>
 </head>
 <body>
-	<h1>Listagem de Agenda</h1>
+	<h1>Listagem de Pre-doadores</h1>
 	<font color="#FF0000">${erro}</font>
 	<font color="#00FF00">${sucesso}</font>
 	<table border="1">
@@ -20,11 +20,11 @@
 			<th width="100" align="center">Sangue</th>
 			<th></th>
 		</tr>
-		<c:forEach var="curso" items="${usuario}" >
+		<c:forEach var="curso" items="${usuarios}" >
 			<tr>
 				<td align="left">${usuario.nome}</td>
 				<td align="center">${usuario.endereco}</td>
-				<td align="center">${usuario.teleone}</td>
+				<td align="center">${usuario.telefone}</td>
 				<td align="center">${usuario.dataNasc}</td>
 				<td align="center">${usuario.tipoSanguineo}</td>
 				<td>

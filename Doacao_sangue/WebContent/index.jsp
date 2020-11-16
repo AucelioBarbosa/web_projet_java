@@ -7,8 +7,12 @@
 </head>
 <body>
 <div align="right">
-		<a href="login.jsp">Funcionario</a>
-	</div>
+		<form method="post" action="UsuarioCRUD">
+		<input type="hidden" name="listar">
+		<input type="submit"name="Funcionario" value="listar">
+		
+		</form>
+</div>
 	<div align="center">
 		<h1>Pre cadastro</h1>
 		${erro}
@@ -34,7 +38,7 @@
 				<option>AB+</option>
 				<option>O-</option>
 				<option>O+</option>
-			</select>
+			</select><p>
 			<input type="submit">
 			<p>
 		</form>

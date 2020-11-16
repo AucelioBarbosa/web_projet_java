@@ -45,10 +45,10 @@ public class UsuarioDAO implements Serializable{
 			Usuario usuario = new Usuario();
 			usuario.setId(rs.getLong("id"));
 			usuario.setNome(rs.getString("nome"));
-			usuario.setEndereco(rs.getString("end"));
-			usuario.setTel(rs.getString("tel"));
+			usuario.setEndereco(rs.getString("endereco"));
+			usuario.setTel(rs.getString("telefone"));
 			usuario.setDataNasc(rs.getDate("dataNasc"));
-			usuario.setTipoSanguineo(rs.getString("tipoSague"));
+			usuario.setTipoSanguineo(rs.getString("tipoSanguinio"));
 			usuarios.add(usuario);
 		}
 		rs.close();
@@ -59,7 +59,7 @@ public class UsuarioDAO implements Serializable{
 	public int alterar(Usuario usuario)throws SQLException{
 		if(usuario == null)
 			return 0;
-		String sql = "UPDATE agenda SET nome=?, telefone=?,endereco=?, tipoSanguinio=?, dataNasc=? WHERE id=?";
+		String sql = "UPDATE usuario SET nome=?, telefone=?,endereco=?, tipoSanguinio=?, dataNasc=? WHERE id=?";
 		PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 		stmt.setString(1, usuario.getNome());
 		stmt.setString(2, usuario.getEndereco());
@@ -83,9 +83,9 @@ public class UsuarioDAO implements Serializable{
 			usuario.setId(rs.getLong("id"));
 			usuario.setNome(rs.getString("nome"));
 			usuario.setEndereco(rs.getString("endereco"));
-			usuario.setTel(rs.getString("tel"));
+			usuario.setTel(rs.getString("telefone"));
 			usuario.setDataNasc(rs.getDate("dataNasc"));
-			usuario.setTipoSanguineo(rs.getString("tipoSague"));
+			usuario.setTipoSanguineo(rs.getString("tipoSanguinio"));
 		}
 		rs.close();
 		stmt.close();
