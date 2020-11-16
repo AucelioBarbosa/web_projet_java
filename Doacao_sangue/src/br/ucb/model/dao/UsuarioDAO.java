@@ -59,7 +59,7 @@ public class UsuarioDAO implements Serializable{
 	public int alterar(Usuario usuario)throws SQLException{
 		if(usuario == null)
 			return 0;
-		String sql = "UPDATE usuario SET nome=?, telefone=?,endereco=?, tipoSanguinio=?, dataNasc=? WHERE id=?";
+		String sql = "UPDATE usuario SET nome=?, telefone=?, endereco=?, tipoSanguinio=?, dataNasc=? WHERE id=?";
 		PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 		stmt.setString(1, usuario.getNome());
 		stmt.setString(2, usuario.getEndereco());
@@ -67,6 +67,7 @@ public class UsuarioDAO implements Serializable{
 		java.sql.Date data = new java.sql.Date(usuario.getDataNasc().getTime());
 		stmt.setDate(4, data);		
 		stmt.setString(5, usuario.getTipoSanguineo());
+		stmt.setLong(6, usuario.getId());
 		int retorno = stmt.executeUpdate();
 		stmt.close();
 		return retorno;		
@@ -74,7 +75,7 @@ public class UsuarioDAO implements Serializable{
 	
 	public Usuario consultar(Long id) throws SQLException{
 		Usuario usuario = null;
-		String sql = "SELECT*FROM usuario WHERE id ";
+		String sql = "SELECT * FROM usuario WHERE id=?";
 		PreparedStatement stmt = this.con.prepareStatement(sql);
 		stmt.setLong(1,id);
 		ResultSet rs = stmt.executeQuery();
@@ -90,17 +91,17 @@ public class UsuarioDAO implements Serializable{
 		rs.close();
 		stmt.close();
 		return usuario;
-	}
-		
+	}	
 	public int excluir(Usuario usuario)throws SQLException {
 		if(usuario == null)
 			return 0;
-		String sql = "DELETE FROM usuario WHERE id";
+		String sql = "DELETE FROM usuario WHERE id=?";
 		PreparedStatement stmt = this.con.prepareStatement(sql);
 		stmt.setLong(1,usuario.getId());
 		int retorno = stmt.executeUpdate();
 		stmt.close();
 		return retorno;
 	}
+
 
 }

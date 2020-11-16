@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import br.ucb.model.Agenda;
 
 public class AgendaDAO implements Serializable{

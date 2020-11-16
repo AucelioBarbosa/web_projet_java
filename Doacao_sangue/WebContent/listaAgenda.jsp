@@ -13,23 +13,19 @@
 	<font color="#00FF00">${sucesso}</font>
 	<table border="1">
 		<tr bgcolor="#AAAAAA">
-			<th width="250" align="center">Nome</th>
-			<th width="100" align="center">Endereço</th>
-			<th width="100" align="center">Telefoner</th>
-			<th width="100" align="center">Nascimento</th>
-			<th width="100" align="center">Sangue</th>
+			<th width="250" align="center">Data</th>
+			<th width="100" align="center">Pasciente</th>
+			<th width="100" align="center">Statos</th>
 			<th></th>
 		</tr>
-		<c:forEach var="curso" items="${usuario}" >
+		<c:forEach var="curso" items="${agenda}" >
 			<tr>
-				<td align="left">${usuario.nome}</td>
-				<td align="center">${usuario.endereco}</td>
-				<td align="center">${usuario.teleone}</td>
-				<td align="center">${usuario.dataNasc}</td>
-				<td align="center">${usuario.tipoSanguineo}</td>
+				<td align="left">${agenda.data}</td>
+				<td align="center">${agenda.usuario}</td>
+				<td align="center">${agena.status}</td>
 				<td>
-					<a href="UsuarioCRUD?acao=consultar&id=${usuario.id}">editar</a>
-					<a href="UsuariCRUD?acao=excluir&id=${usuario.id}">excluir</a>
+					<a href="AgendaCRUD?acao=consultar&id=${agenda.id}">editar</a>
+					<a href="AgendaCRUD?acao=excluir&id=${agenda.id}">excluir</a>
 				</td>
 			</tr>
 		</c:forEach>

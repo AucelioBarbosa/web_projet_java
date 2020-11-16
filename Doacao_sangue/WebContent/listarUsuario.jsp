@@ -20,21 +20,21 @@
 			<th width="100" align="center">Sangue</th>
 			<th></th>
 		</tr>
-		<c:forEach var="curso" items="${usuarios}" >
+		<c:forEach var="usuario" items="${usuarios}" >
 			<tr>
 				<td align="left">${usuario.nome}</td>
 				<td align="center">${usuario.endereco}</td>
-				<td align="center">${usuario.telefone}</td>
+				<td align="center">${usuario.tel}</td>
 				<td align="center">${usuario.dataNasc}</td>
 				<td align="center">${usuario.tipoSanguineo}</td>
 				<td>
 					<a href="UsuarioCRUD?acao=consultar&id=${usuario.id}">editar</a>
-					<a href="UsuariCRUD?acao=excluir&id=${usuario.id}">excluir</a>
+					<a href="UsuarioCRUD?acao=excluir&id=${usuario.id}">excluir</a>
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br/>
-	<a href="index.jsp">Incluir</a><p/>
+	<a href="index.jsp">Voltar</a><p/>
 </body>
 </html>

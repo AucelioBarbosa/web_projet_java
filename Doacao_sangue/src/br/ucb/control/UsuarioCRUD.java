@@ -20,6 +20,7 @@ import br.ucb.model.dao.UsuarioDAO;
 @WebServlet("/UsuarioCRUD")
 public class UsuarioCRUD extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao"), destino= null;
 		RequestDispatcher dispatcher;
@@ -27,27 +28,28 @@ public class UsuarioCRUD extends HttpServlet {
 		List<Usuario> usuarios;
 		Usuario usuario;
 		long id;
-
 		try {
 			usuarioDAO = new UsuarioDAO();
 			if((acao == null) || (acao.equals("listar"))) {
 				usuarios = usuarioDAO.listar();
+				request.setAttribute("usuarios",usuarios);
 				destino ="listarUsuario.jsp";
 			}else if(acao.equals("consultar")){
 				id = Long.parseLong(request.getParameter("id"));
 				usuario = usuarioDAO.consultar(id);
-				destino = "listarUsuario.jsp";	
+				request.setAttribute("usuario",usuario);
+				destino = "index.jsp";	
 			}else if(acao.equals("excluir")){
 				id = Long.parseLong(request.getParameter("id"));
-				usuario =  usuarioDAO.consultar(id);
-				usuarios = usuarioDAO.listar();
+				usuario = usuarioDAO.consultar(id);
+				usuarios= usuarioDAO.listar();
 				request.setAttribute("usuarios", usuarios);
-				if(usuarioDAO.excluir(usuario)==0)
+				if(usuarioDAO.excluir(usuario) == 0)
 					request.setAttribute("erro","erro ao excluir usuario");
 				else
 					request.setAttribute("Sucesso","usuario excluido");
 				destino = "listarUsuario.jsp";
-			}else if (acao.equals("salvar")){
+			}else if (acao.equals("salvar")) {
 				usuario = new Usuario();
 				usuario.setNome(request.getParameter("nome"));
 				usuario.setTel(request.getParameter("telefone"));
@@ -67,7 +69,7 @@ public class UsuarioCRUD extends HttpServlet {
 			}
 
 		} catch (SQLException e) {
-			request.setAttribute("erro", "Erro de banco de dados=  "+ e.getMessage());
+			request.setAttribute("erro", "Erro de banco de dados= " +e.getMessage());
 			destino = "index.jsp";
 		}
 		catch (NumberFormatException e) {
