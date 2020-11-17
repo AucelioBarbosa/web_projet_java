@@ -21,7 +21,7 @@ public class AgendaDAO implements Serializable{
 	public int incluir(Agenda agenda) throws SQLException{
 		if(agenda == null)
 			return 0;
-		String sql = "INSERT INTO agenda (data,status,usuario_id)VALUES (?,?,?)";
+		String sql = "INSERT INTO agenda (data, status, usuario_id) VALUES (?,?,?)";
 		PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 		java.sql.Date data = new java.sql.Date(agenda.getData().getTime());
 		stmt.setDate(1, data);
@@ -52,12 +52,13 @@ public class AgendaDAO implements Serializable{
 	public int alterar(Agenda agenda)throws SQLException{
 		if(agenda == null)
 			return 0;
-		String sql = "UPDATE agenda SET data=?,status=?,usuario=?,_id=? WHERE id=?";
+		String sql = "UPDATE agenda SET data=?, status=?, usuario_id=? WHERE id=?";
 		PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 		java.sql.Date data = new java.sql.Date(agenda.getData().getTime());
 		stmt.setDate(1, data);
 		stmt.setBoolean(2, agenda.isAgendado());
 		stmt.setLong(3, agenda.getUsuarios().getId());
+		stmt.setLong(4,agenda.getId());
 		int retorno = stmt.executeUpdate();
 		stmt.close();
 		return retorno;		
@@ -74,7 +75,7 @@ public class AgendaDAO implements Serializable{
 			agenda = new Agenda();
 			agenda.setData(rs.getDate("data"));
 			agenda.setAgendado(rs.getBoolean("Agendado"));
-			agenda.setUsuarios(usuarioDAO.consultar(rs.getLong("id")));
+			agenda.setUsuarios(usuarioDAO.consultar(rs.getLong("usuario_id")));
 		}
 		rs.close();
 		stmt.close();

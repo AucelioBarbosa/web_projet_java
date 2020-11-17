@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <title>Doadores</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
 			<th width="100" align="center">Statos</th>
 			<th></th>
 		</tr>
-		<c:forEach var="curso" items="${agenda}" >
+		<c:forEach var="agenda" items="${agendas}" >
 			<tr>
 				<td align="left">${agenda.data}</td>
 				<td align="center">${agenda.usuario}</td>
@@ -31,6 +32,6 @@
 		</c:forEach>
 	</table>
 	<br/>
-	<a href="index.jsp">Incluir</a><p/>
+	<a href="agendaCRUD?acao=incluir">Incluir</a><p/>
 </body>
 </html>
