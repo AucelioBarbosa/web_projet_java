@@ -36,6 +36,6 @@
 	</table>
 	<br/>
 	<a href="index.jsp">Voltar</a><p/>
-	<a href="listaAgenda.jsp">Agendar</a>
+	<a href="agendaCRUD?acao=listar">Agendar</a>
 </body>
 </html>

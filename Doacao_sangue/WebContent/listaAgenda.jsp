@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <title>Doadores</title>
 </head>
 <body>
@@ -14,24 +13,28 @@
 	<font color="#00FF00">${sucesso}</font>
 	<table border="1">
 		<tr bgcolor="#AAAAAA">
-			<th width="250" align="center">Data</th>
-			<th width="100" align="center">Pasciente</th>
-			<th width="100" align="center">Statos</th>
-			<th></th>
+			<th width="250" align="center">Doador</th>
+			<th width="100" align="center">Agendado</th>
+			<th width="100" align="center">Data</th>
+			<th></th>	
 		</tr>
 		<c:forEach var="agenda" items="${agendas}" >
 			<tr>
+				<td align="center">${agenda.usuario.nome}</td>
+				<td align="center">
+					<c:if test="${agenda.agendado}">sim</c:if>
+					<c:if test="${!agenda.agendado}">não</c:if>
+				</td>
 				<td align="left">${agenda.data}</td>
-				<td align="center">${agenda.usuario}</td>
-				<td align="center">${agena.status}</td>
 				<td>
-					<a href="AgendaCRUD?acao=consultar&id=${agenda.id}">editar</a>
-					<a href="AgendaCRUD?acao=excluir&id=${agenda.id}">excluir</a>
+					<a href="agendaCRUD?acao=consultar&id=${agenda.id}">editar</a>
+					<a href="agendaCRUD?acao=excluir&id=${agenda.id}">excluir</a>
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br/>
 	<a href="agendaCRUD?acao=incluir">Incluir</a><p/>
+	<a href="index.jsp">Sair</a>
 </body>
 </html>

@@ -9,46 +9,38 @@ public class Agenda implements Serializable{
 	private long id;
 	private Date data;
 	private boolean agendado;
-	private Usuario usuarios;
-	
+	private Usuario usuario;
 	
 	public long getId() {
 		return id;
 	}
 	
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
 
 	public Date getData() {
 		return data;
 	}
 
-
 	public void setData(Date data) {
 		this.data = data;
 	}
-
 
 	public boolean isAgendado() {
 		return agendado;
 	}
 
-
 	public void setAgendado(boolean agendado) {
 		this.agendado = agendado;
 	}
 
-
-	public Usuario getUsuarios() {
-		return usuarios;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-
-	public void setUsuarios(Usuario usuarios) {
-		this.usuarios = usuarios;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

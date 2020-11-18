@@ -42,15 +42,13 @@ public class AgendaCRUD extends HttpServlet {
 				agenda = agendaDAO.consultar(id);
 				request.setAttribute("agenda",agenda);
 				request.setAttribute("usuarios",usuarioDAO.listar());
-				destino = "listaAgenda.jsp";
+				destino = "incluirAgenda.jsp";
 			}else if(acao.equals("incluir")){
 				request.setAttribute("usuarios",usuarioDAO.listar());
 				destino = "incluirAgenda.jsp";
 			}else if(acao.equals("excluir")){
 				id = Long.parseLong(request.getParameter("id"));
 				agenda = agendaDAO.consultar(id);
-				agendas= agendaDAO.listar();
-				request.setAttribute("agendas", agendas);
 				if(agendaDAO.excluir(agenda) == 0)
 					request.setAttribute("erro","erro ao excluir usuario");
 				else
@@ -61,7 +59,7 @@ public class AgendaCRUD extends HttpServlet {
 				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 				agenda.setData(sdf.parse(request.getParameter("dataAgendamento")));
 				agenda.setAgendado(request.getParameter("agendado") != null);
-				agenda.setUsuarios(usuarioDAO.consultar(Long.parseLong(request.getParameter("usuario_id"))));
+				agenda.setUsuario(usuarioDAO.consultar(Long.parseLong(request.getParameter("idusuario"))));
 				if (request.getParameter("id").equals("")) { // n�o tem id
 					if (agendaDAO.incluir(agenda) == 0)
 						request.setAttribute("erro", "Erro na inclus�o. N�o incluido!");

@@ -24,16 +24,16 @@
 			<input type="text"name="dataAgendamento" value="${agenda.data}" size="10"	maxlength="10"/>
 		<p />
 		<label>Agendado</label>
-		<c:if test="${agenda.ativo}">
+		<c:if test="${agenda.agendado}">
 			<input type="checkbox" name="agendado" checked="checked" />
 			<p />
 		</c:if>
-		<c:if test="${!agenda.ativo}">
+		<c:if test="${!agenda.agendado}">
 			<input type="checkbox" name="agendado" />
 			<p />
 		</c:if>
 		<label>Agenda</label><br /> 
-	<select name="usuario_id">
+	<select name="idusuario">
 			<c:forEach var="usuario" items="${usuarios}" >
 				<c:if test="${usuaio.id == agenda.usuario.id}">
 					<option value="${usuario.id}" selected="selected">${usuario.nome}
@@ -44,10 +44,10 @@
 			</c:forEach>
 		</select>
 		<p />
-		<input type="submit" value="Salvar" />
+		<input type="submit" value="Salvar"/>
 	</form>
 	<a href="agendaCRUD?acao=listar">Lista</a>
-	<a href="listarUsuario.jsp">volta</a>
+	<a href="UsuarioCRUD?acao=listar">volta</a>
 	<br />
 </body>
 </html>
