@@ -9,15 +9,17 @@
 <title>Doadores</title>
 </head>
 <body>
+	<div align="center">
 	<h1>Listagem de Agenda</h1>
 	<font color="#FF0000">${erro}</font>
 	<font color="#00FF00">${sucesso}</font>
 	<table class="table table-striped">
+	</div><p>
 		<tr bgcolor="#AAAAAA">
 			<th width="250" align="center">Doador</th>
 			<th width="100" align="center">Agendado</th>
 			<th width="100" align="center">Data</th>
-			<th></th>	
+			<th width="100" align="center">Opção</th>	
 		</tr>
 		<c:forEach var="agenda" items="${agendas}" >
 			<tr>
@@ -34,9 +36,11 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<div align="center">
 	<br/>
 	<a class="btn btn-primary" href="agendaCRUD?acao=incluir" role="button">Incluir</a>
 	<a class="btn btn-primary" href="index.jsp" role="button">Sair</a>
+	</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

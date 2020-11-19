@@ -9,12 +9,14 @@
 <body>
 	<div align="center">
 		<h1>Login</h1>
-		<form>
+		<form method="post" action="funcionarioCRUD">
+			<input type="hidden" name="listar"> 
 			<label>Usuário</label><br>
-			<input type="text" name="nome" size="50"><p>
+			<input type="text" name="login" size="50"><p>
 			<label>Senha</label><br>
-			<input type="password" name="endereco" size="50"><p>
-			<button type="submit">Logar</button>
+			<input type="password" name="senha" size="50"><p>
+			
+			<input type="submit"name="Funcionario" value="listar">
 		</form>
 	</div>
 </body>
