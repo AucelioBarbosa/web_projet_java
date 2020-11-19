@@ -24,11 +24,11 @@
 		<div class="conteiner col-sm-6">
 			<form method="post" action="UsuarioCRUD">
 
-				<input type="hidden" name="acao" value="salvar" /> <input
-					type="hidden" name="id" value="${usuario.id}" />
+				<input type="hidden" name="acao" value="salvar" /> 
+				<input type="hidden" name="id" value="${usuario.id}" />
 				<div class="form-group">
-					<label>Nome</label><br> <input type="text"
-						class="form-control" name="nome" value="${usuario.nome}" size="50">
+					<label>Nome</label><br> 
+					<input type="text"class="form-control" name="nome" value="${usuario.nome}" size="50">
 				</div>
 				<p>
 					<label>Endereço</label><br> <input type="text" name="endereco"
