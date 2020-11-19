@@ -5,17 +5,19 @@ import java.util.Date;
 
 public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
-	 private long id;
-	 private String nome;
-	 private String endereco;
-	 private String tel;
-	 private Date dataNasc;
-	 private String tipoSanguineo;
-	 
+
+	private long id;
+	private String nome;
+	private String endereco;
+	private String tel;
+	private Date dataNasc;
+	private String tipoSanguineo;
+
+
 	public Usuario() {
-		 
+
 	}
+	
 
 	public long getId() {
 		return id;
@@ -64,5 +66,5 @@ public class Usuario implements Serializable{
 	public void setTipoSanguineo(String tipoSanguineo) {
 		this.tipoSanguineo = tipoSanguineo;
 	}
-	 
+
 }

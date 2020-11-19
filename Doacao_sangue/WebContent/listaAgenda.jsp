@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Doadores</title>
 </head>
@@ -11,7 +12,7 @@
 	<h1>Listagem de Agenda</h1>
 	<font color="#FF0000">${erro}</font>
 	<font color="#00FF00">${sucesso}</font>
-	<table border="1">
+	<table class="table table-striped">
 		<tr bgcolor="#AAAAAA">
 			<th width="250" align="center">Doador</th>
 			<th width="100" align="center">Agendado</th>
@@ -27,14 +28,16 @@
 				</td>
 				<td align="left">${agenda.data}</td>
 				<td>
-					<a href="agendaCRUD?acao=consultar&id=${agenda.id}">editar</a>
-					<a href="agendaCRUD?acao=excluir&id=${agenda.id}">excluir</a>
+					<a class="btn btn-success"href="agendaCRUD?acao=consultar&id=${agenda.id}">editar</a>
+					<a class="btn btn-danger" href="agendaCRUD?acao=excluir&id=${agenda.id}">excluir</a>
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br/>
-	<a href="agendaCRUD?acao=incluir">Incluir</a><p/>
-	<a href="index.jsp">Sair</a>
+	<a class="btn btn-primary" href="agendaCRUD?acao=incluir" role="button">Incluir</a>
+	<a class="btn btn-primary" href="index.jsp" role="button">Sair</a>
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </html>

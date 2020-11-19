@@ -18,29 +18,35 @@
 	</div>
 	<div align="center">
 		<c:if test="${usuario.id == null}">
-			<h2>Pre cadastro</h2>
+			 <label for="exampleInputEmail1">Pre cadastro</label>
 		</c:if>
 		<c:if test="${usuario.id != null}">
-			<h2>Alteração de Pre cadastro</h2>
+			<label for="exampleInputEmail1">Alteração de Pre cadastro</label>
 		</c:if>
 		<font color="#FF0000">${erro}</font> 
 		<font color="#00FF00">${sucesso}</font>
+		<div class="conteiner col-sm-6" >
 		<form method="post" action="UsuarioCRUD">
+		
 			<input type="hidden" name="acao" value="salvar" /> <input
-				type="hidden" name="id" value="${usuario.id}" /> <label>Nome</label><br>
-			<input type="text" name="nome" value="${usuario.nome}" size="50">
+				type="hidden" name="id" value="${usuario.id}" /> 
+			<div class="form-group">
+				<label>Nome</label><br>
+			<input type="text" class="form-control" name="nome" value="${usuario.nome}" size="50">
+			</div>
 			<p>
 				<label>Endereço</label><br> 
-				<input type="text" name="endereco" value="${usuario.endereco}" size="50">
+				<input type="text" name="endereco" class="form-control" value="${usuario.endereco}" size="50">
 			<p>
 				<label>Telefone</label><br> 
-				<input type="text" name="telefone" value="${usuario.tel}">
+				<input type="text" class="form-control" name="telefone" value="${usuario.tel}">
 			<p>
 				<label>Data de nascimento</label><br> 
 				<label>dd/mm/aaaa</label><br>
-				<input type="text" name="dataNasc" value="${usuario.dataNasc}">
+				<input type="text" class="form-control" name="dataNasc" value="${usuario.dataNasc}">
 			<p>
-				<label>Tipo Sanguíneo</label><br> <select name="tipoSanguinio">
+				<label>Tipo Sanguíneo</label><br> 
+				<select name="tipoSanguinio" class="form-control">
 					<option>A-</option>
 					<option>A+</option>
 					<option>B-</option>
@@ -51,9 +57,13 @@
 					<option>O+</option>
 				</select>
 			<p>
-				<input type="submit">
+				<input class="btn btn-primary" type="submit">
 			<p>
+			</div>
 		</form>
 	</div>
+	</div>
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </html>
