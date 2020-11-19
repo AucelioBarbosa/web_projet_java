@@ -36,7 +36,7 @@
 						<td align="left">${usuario.nome}</td>
 						<td align="center">${usuario.endereco}</td>
 						<td align="center">${usuario.tel}</td>
-						<td align="center"><fmt:formatDate value="${usuario.dataNasc}"/></td>
+						<td align="center">${usuario.dataNascDMA}</td>
 						<td align="center">${usuario.tipoSanguineo}</td>
 						<td>
 							<a class="btn btn-success" href="UsuarioCRUD?acao=consultar&id=${usuario.id}">editar</a>

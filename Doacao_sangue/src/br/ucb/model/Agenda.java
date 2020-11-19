@@ -25,7 +25,7 @@ public class Agenda implements Serializable{
 		return data;
 	}
 	
-	public String getDtaNascDMA() {
+	public String getDataNascDMA() {
 		return (new SimpleDateFormat("dd/MM/yyyy")).format(this.data);
 	}
 
