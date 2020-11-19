@@ -21,34 +21,34 @@
 	<table class="table table-striped">
 	
 	<div class="container">
-		<div class="container">
-			<div class="row row-cols-4">
+	<div class="container">
+		<div class="row row-cols-4">
 				<tr bgcolor="#AAAAAA">
-					<th align="center">Doador</th>
-					<th align="center">Agendado</th>
-					<th align="center">Data</th>
-					<th align="center">Opção</th>	
-				</tr>
-			</div>
+				<th align="center">Doador</th>
+				<th align="center">Agendado</th>
+				<th align="center">Data</th>
+				<th align="center">Opção</th>	
+			</tr>
+		</div>
 		</div>
 		
 		<div class="container">
-				<div class="row row-cols-4">	
-					<c:forEach var="agenda" items="${agendas}" >
-						<tr>
-							<td align="center">${agenda.usuario.nome}</td>
-							<td align="center">
-								<c:if test="${agenda.agendado}">sim</c:if>
-								<c:if test="${!agenda.agendado}">não</c:if>
-							</td>
-							<td align="left">${agenda.data}</td>
-							<td>
-								<a class="btn btn-success"href="agendaCRUD?acao=consultar&id=${agenda.id}">editar</a>
-								<a class="btn btn-danger" href="agendaCRUD?acao=excluir&id=${agenda.id}">excluir</a>
-							</td>
-						</tr>
-					</c:forEach>
-				</div>
+			<div class="row row-cols-4">	
+				<c:forEach var="agenda" items="${agendas}" >
+					<tr>
+						<td align="center">${agenda.usuario.nome}</td>
+						<td align="center">
+						<c:if test="${agenda.agendado}">sim</c:if>
+						<c:if test="${!agenda.agendado}">não</c:if>
+						</td>
+						<td align="left"><fmt:formatDate value="${agenda.data}"/></td>
+						<td>
+						<a class="btn btn-success"href="agendaCRUD?acao=consultar&id=${agenda.id}">editar</a>
+						<a class="btn btn-danger" href="agendaCRUD?acao=excluir&id=${agenda.id}">excluir</a>
+					</td>
+					</tr>
+				</c:forEach>
+			</div>
 		</table>
 	</div>
 

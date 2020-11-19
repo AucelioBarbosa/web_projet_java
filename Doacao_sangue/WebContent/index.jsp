@@ -40,7 +40,7 @@
 					<label>Data de nascimento</label><br>
 				 	<label>dd/mm/aaaa</label><br>
 				 	
-					<input type="text" class="form-control" name="dataNasc"	value="${usuario.dataNasc}">
+					<input type="text" class="form-control" name="dataNasc"/>
 				<p>
 					<label>Tipo Sanguíneo</label><br> 
 					<select name="tipoSanguinio"

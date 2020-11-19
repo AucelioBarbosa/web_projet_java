@@ -69,7 +69,7 @@ public class UsuarioCRUD extends HttpServlet {
 			}
 
 		} catch (SQLException e) {
-			request.setAttribute("erro", "Erro de banco de dados= " +e.getMessage());
+			request.setAttribute("erro", "Erro de banco de dados");
 			destino = "index.jsp";
 		}
 		catch (NumberFormatException e) {

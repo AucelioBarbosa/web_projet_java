@@ -14,12 +14,6 @@ public class Funcionario implements Serializable{
 		
 	}
 	
-	public boolean logar (String login, String senha) {
-		boolean logar = true;		
-		if((!login.equals(this.login)) & (!senha.equals(this.senha)))
-			 logar= false;
-		return logar;
-	}
 
 	public long getId() {
 		return id;

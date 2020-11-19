@@ -9,14 +9,13 @@
 <body>
 	<div align="center">
 		<h1>Login</h1>
-		<form method="post" action="funcionarioCRUD">
-			<input type="hidden" name="listar"> 
+		<form method="post" action="controleLogin">
+			<input type="hidden" name="acao" name="logar"> 
 			<label>Usuário</label><br>
 			<input type="text" name="login" size="50"><p>
 			<label>Senha</label><br>
 			<input type="password" name="senha" size="50"><p>
-			
-			<input type="submit"name="Funcionario" value="listar">
+			<input type="submit" value="Logar">
 		</form>
 	</div>
 </body>
