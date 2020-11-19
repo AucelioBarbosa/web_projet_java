@@ -56,7 +56,7 @@ public class Usuario implements Serializable{
 		return dataNasc;
 	}
 	
-	public String getDtaNascDMA() {
+	public String getDataNascDMA() {
 		return (new SimpleDateFormat("dd/MM/yyyy")).format(this.dataNasc);
 	}
 
