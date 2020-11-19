@@ -1,6 +1,7 @@
 package br.ucb.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Usuario implements Serializable{
@@ -53,6 +54,10 @@ public class Usuario implements Serializable{
 
 	public Date getDataNasc() {
 		return dataNasc;
+	}
+	
+	public String getDtaNascDMA() {
+		return (new SimpleDateFormat("dd/MM/yyyy")).format(this.dataNasc);
 	}
 
 	public void setDataNasc(Date dataNasc) {

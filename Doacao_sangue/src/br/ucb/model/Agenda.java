@@ -1,6 +1,7 @@
 package br.ucb.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Agenda implements Serializable{
@@ -22,6 +23,10 @@ public class Agenda implements Serializable{
 
 	public Date getData() {
 		return data;
+	}
+	
+	public String getDtaNascDMA() {
+		return (new SimpleDateFormat("dd/MM/yyyy")).format(this.data);
 	}
 
 	public void setData(Date data) {
