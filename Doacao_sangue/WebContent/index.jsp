@@ -16,6 +16,7 @@
 	<div align="center">
 		<c:if test="${usuario.id == null}">
 		<h1><label for="exampleInputEmail1">Pre cadastro</label></h1>
+		<input  class="btn btn-success" type="submit"name="list" value="Funcionario">	
 		</c:if>
 		<c:if test="${usuario.id != null}">
 			<label for="exampleInputEmail1">Alteração de Pre cadastro</label>
