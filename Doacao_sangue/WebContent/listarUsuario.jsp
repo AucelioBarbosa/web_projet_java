@@ -65,7 +65,6 @@
 				<tr bgcolor="#AAAAAA">
 					<th align="center">Quantida estoque</th>
 					<th align="center">Tipo Sangue</th>
-					<th align="center">Opção</th>
 				</tr>
 			</div>
 		</div>
@@ -74,8 +73,8 @@
 			<div class="row row-cols-6">
 				<c:forEach var="usuario" items="${usuarios}" >
 					<tr>
-					
-						<td align="center">${usuario.dataNascDMA}</td>
+						
+						<td align="center">20 litros </td>
 						<td align="center">${usuario.tipoSanguineo}</td>
 						<td>
 							<a class="btn btn-success" href="UsuarioCRUD?acao=consultar&id=${usuario.id}">editar</a>
