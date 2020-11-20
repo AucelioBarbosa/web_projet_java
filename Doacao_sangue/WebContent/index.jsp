@@ -45,7 +45,6 @@
 					<div align="left" style="color:#483D8B" >
 					<label><b>Nome </b></label>					
 					</div>
-					
 					<input type="text"class="form-control" name="nome" value="${usuario.nome}" size="50">
 				</div><p>
 			
