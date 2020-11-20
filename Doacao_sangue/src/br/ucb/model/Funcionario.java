@@ -15,6 +15,7 @@ public class Funcionario implements Serializable{
 	}
 	
 
+
 	public long getId() {
 		return id;
 	}

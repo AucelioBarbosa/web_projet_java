@@ -26,15 +26,17 @@
 				<input class="form-control" type="hidden" name="acao" value="salvar"/> <input
 					type="hidden" name="id" value="${agenda.id}" /> 
 					<label>Datado Agendamento (dd/mm/aaaa)</label><br /> 
-				<input class="form-control" type="text"name="dataAgendamento" value="${agenda.data}" size="10"	maxlength="10"/><p>
+				<input class="form-control" type="text" name="dataAgendamento"value="${agenda.dataNascDMA}" size="10"maxlength="10"/><p>
+				
 			<div class="container">
-				<label>Agedar</label>
+				
 				<c:if test="${agenda.agendado}">
 					<input class="form-check-input" type="checkbox" name="agendado" checked="checked"/><p />
 				</c:if>
 					<c:if test="${!agenda.agendado}">
 					<input cclass="form-check-input" type="checkbox" name="agendado" />	<p>
 				</c:if>
+				<label>Agedar</label>
 			</div>
 				
 			<div class="container">	

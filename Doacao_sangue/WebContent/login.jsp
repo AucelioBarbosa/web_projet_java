@@ -10,7 +10,6 @@
 	<div align="center">
 		<h1>Login</h1>
 		<form method="post" action="controleLogin">
-			<input type="hidden" name="acao" name="logar"> 
 			<label>Usuário</label><br>
 			<input type="text" name="login" size="50"><p>
 			<label>Senha</label><br>

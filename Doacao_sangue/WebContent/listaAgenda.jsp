@@ -41,7 +41,7 @@
 						<c:if test="${agenda.agendado}">sim</c:if>
 						<c:if test="${!agenda.agendado}">não</c:if>
 						</td>
-						<td align="left"><fmt:formatDate value="${agenda.data}"/></td>
+						<td align="left">${agenda.dataNascDMA}</td>
 						<td>
 						<a class="btn btn-success"href="agendaCRUD?acao=consultar&id=${agenda.id}">editar</a>
 						<a class="btn btn-danger" href="agendaCRUD?acao=excluir&id=${agenda.id}">excluir</a>
