@@ -14,7 +14,7 @@
 </head>
 <body style="background-image: url('teladefundo.png')" >
 	<div align="right">
-			<form method="post" action="UsuarioCRUD">
+			<form method="post" action="login.jsp">
 			<input  class="btn btn-danger" type="submit"name="list" value="Acesso Restrito">	
 		</form>
 		</div>  
