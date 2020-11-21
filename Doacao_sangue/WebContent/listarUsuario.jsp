@@ -10,11 +10,12 @@
 </head>
 <body>
 <div align="center">
-	<h1>Listagem de Pre-doadores</h1>
+	<h1 style="color:#483D8B"><b>Listagem de Pre-doadores</b></h1>
 		<font color="#FF0000">${erro}</font>
 		<font color="#00FF00">${sucesso}</font>
 	</div>
 <div class="container">
+
 	<table class="table table-striped">
 		<div class="container">
 			 <div class="row row-cols-6">	
@@ -47,11 +48,44 @@
 			</div>
 		</div>	
 	</table>
+	
+	
+	
 </div>
 	
 <div align="center">
 	<a class="btn btn-primary" href="index.jsp">Voltar</a>
 	<a class="btn btn-primary" href="agendaCRUD?acao=listar">Agendar</a>
+	<p>
+	<br>
+	
+	<table class="table table-striped">
+		<div class="container">
+			 <div class="row row-cols-6">	
+				<tr bgcolor="#AAAAAA">
+					<th align="center">Quantida estoque</th>
+					<th align="center">Tipo Sangue</th>
+				</tr>
+			</div>
+		</div>
+			
+		<div class="container">
+			<div class="row row-cols-6">
+				<c:forEach var="usuario" items="${usuarios}" >
+					<tr>
+						
+						<td align="center">20 litros </td>
+						<td align="center">${usuario.tipoSanguineo}</td>
+						<td>
+							<a class="btn btn-success" href="UsuarioCRUD?acao=consultar&id=${usuario.id}">editar</a>
+							<a class="btn btn-danger" href="UsuarioCRUD?acao=excluir&id=${usuario.id}">excluir</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</div>
+		</div>	
+	</table>
+	
 </div>
 
 </body>

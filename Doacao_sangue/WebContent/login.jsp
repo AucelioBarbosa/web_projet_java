@@ -15,13 +15,17 @@
 <body>
 	<div align="center">
 		<h1 style="color:#483D8B" ><b>Login</b></h1><br>
-		
-		<form method="post" action="controleLogin">
+		<form method="post" action="UsuarioCRUD?acao=listar">
 			<label style="color:#483D8B" for="exampleInputEmail1">Usuário</label><br>
+
+		<form method="post" action="listarUsuario.jsp">
+			<input type="hidden" name="acao" name="logar"> 
+			<label style="color:#483D8B" for="exampleInputEmail1"><b>Usuário</b></label><br>
+
 			<input type="text" name="login" size="50"><p>
-			<label style="color:#483D8B" for="exampleInputEmail1">Senha</label><br>
+			<label style="color:#483D8B" for="exampleInputEmail1"><b>Senha</b></label><br>
 			<input type="password" name="senha" size="50"><p>
-			<input type="submit" class="btn btn-primary" value="Logar">
+			<input type="submit" class="btn btn-primary" value="">
 		</form>
 	</div>
 </body>

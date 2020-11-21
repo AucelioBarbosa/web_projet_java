@@ -11,7 +11,7 @@
 <body>
 
 	<div align="center">
-		<h1>Listagem de Agenda</h1>
+		<h1 style="color:#483D8B"><b>Listagem de Agenda</b></h1>
 		<font color="#FF0000">${erro}</font>
 		<font color="#00FF00">${sucesso}</font>
 

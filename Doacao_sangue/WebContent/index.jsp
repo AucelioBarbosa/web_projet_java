@@ -14,7 +14,7 @@
 </head>
 <body style="background-image: url('teladefundo.png')" >
 	<div align="right">
-			<form method="post" action="UsuarioCRUD">
+			<form method="post" action="login.jsp">
 			<input  class="btn btn-danger" type="submit"name="list" value="Acesso Restrito">	
 		</form>
 		</div>  
@@ -32,7 +32,7 @@
 		<h1 style="color:#483D8B" ><label for="exampleInputEmail1"> Agende sua <b>doação</b></label></h1>
 		</c:if>
 		<c:if test="${usuario.id != null}">
-			<label for="exampleInputEmail1">Alteração de Pre cadastro</label>
+			<h1 style="color:#483D8B" ><label for="exampleInputEmail1">Alteração de <b>Pre cadastro</b></label></h1>
 		</c:if>
 		<font color="#FF0000">${erro}</font> <font color="#00FF00">${sucesso}</font>
 		<div class="conteiner">
@@ -65,7 +65,7 @@
 					<div align="left" style="color:#483D8B" >
 					<label><b>Data de Nascimento </b></label>					
 					</div>			 	
-					<input placeholder ="DD/MM/AAAA" type="text" class="form-control" name="dataNasc"/>
+					<input placeholder ="DD/MM/AAAA" type="text" class="form-control" name="dataNasc"value="${usuario.dataNascDMA}"/>
 				<p>
 					<div align="left" style="color:#483D8B" >
 					<label><b>Tipo Sanguineo</b></label>
@@ -84,7 +84,7 @@
 					</select>
 				<p>
 				<p>
-					<input class="btn btn-primary"  type="submit" value="Enviar">
+					<input class="btn btn-primary"type="submit" name="Enviar" value="Salvar">
 				<p>
 			</form>
 			</div>

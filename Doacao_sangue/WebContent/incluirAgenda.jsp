@@ -12,7 +12,7 @@
 <body>
 <div align="center">
 	<c:if test="${agenda.id == null}">
-			<h2><label>Agendamento</label></h2>
+			<h2><label style="color:#483D8B"><b>Agendamento</b></label></h2>
 		</c:if>
 	<c:if test="${agenda.id != null}">
 			<h2>Alteração</h2>
@@ -25,22 +25,23 @@
 			<form method="post" action="agendaCRUD">
 				<input class="form-control" type="hidden" name="acao" value="salvar"/> <input
 					type="hidden" name="id" value="${agenda.id}" /> 
-					<label>Datado Agendamento (dd/mm/aaaa)</label><br /> 
-				<input class="form-control" type="text" name="dataAgendamento"value="${agenda.dataNascDMA}" size="10"maxlength="10"/><p>
-				
+
+					<label style="color:#483D8B"><b>Data do Agendamento</b> </label><br /> 
+				<input placeholder ="DD/MM/AAAA" class="form-control" type="text"name="dataAgendamento" value="${agenda.dataNascDMA}" size="10" /><p>
+
 			<div class="container">
-				
 				<c:if test="${agenda.agendado}">
-					<input class="form-check-input" type="checkbox" name="agendado" checked="checked"/><p />
+					<input class="form-check-input" type="checkbox" name="agendado" checked="checked"/><p/>
 				</c:if>
 					<c:if test="${!agenda.agendado}">
-					<input cclass="form-check-input" type="checkbox" name="agendado" />	<p>
+					<input cclass="form-check-input" type="checkbox" name="agendado"/>
 				</c:if>
-				<label>Agedar</label>
+				<label style="color:#483D8B"><b>Agedar</b></label>
+				
 			</div>
 				
 			<div class="container">	
-			<label>Pasciente</label><br> 
+			<label style="color:#483D8B"><b>Paciente</b></label><br> 
 			<select class="form-control" name="idusuario">
 				<c:forEach var="usuario" items="${usuarios}" >
 					<c:if test="${usuaio.id == agenda.usuario.id}">
